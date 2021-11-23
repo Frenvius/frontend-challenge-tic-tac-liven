@@ -9,15 +9,13 @@ const Square = ({
 	value: string;
 	onClick: () => void;
 }) => {
-	const emojiValue = value ? (value === 'X' ? '❌' : '⭕') : value;
-
 	return (
 		<button
 			data-testid={`square-${id}`}
 			className="square"
 			onClick={onClick}
 		>
-			{emojiValue}
+			{value}
 		</button>
 	);
 };

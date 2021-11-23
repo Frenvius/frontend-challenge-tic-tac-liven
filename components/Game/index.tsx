@@ -9,6 +9,8 @@ const Game: React.FC = () => {
 		currentBoard,
 		stepNumber,
 		nextPlayer,
+		restartGame,
+		parsePlayer,
 		computeMove
 	} = useGameState();
 
@@ -23,11 +25,11 @@ const Game: React.FC = () => {
 	const renderStatusMessage = () => {
 		const winner = calculateWinner(currentBoard);
 		if (winner) {
-			return 'Winner: ' + winner;
+			return `Winner: ${winner}`;
 		} else if (stepNumber === 9) {
 			return 'Draw: Index over';
 		} else {
-			return 'Next player: ' + (nextPlayer === 'X' ? '❌' : '⭕');
+			return `Next player: ${parsePlayer(nextPlayer)}`;
 		}
 	};
 
@@ -47,8 +49,9 @@ const Game: React.FC = () => {
 					/>
 				</div>
 				<div className="game-info">
-					<div>Current step: {stepNumber}</div>
-					<div>{renderStatusMessage()}</div>
+					<p>Current step: {stepNumber}</p>
+					<p>{renderStatusMessage()}</p>
+					<button onClick={restartGame}>Reset Game</button>
 				</div>
 			</div>
 		</>

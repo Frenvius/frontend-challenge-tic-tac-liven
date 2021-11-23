@@ -4,25 +4,37 @@
 
 import { useState } from 'react';
 
-type Player = 'X' | 'O';
-
 const useGameState = () => {
-	const [nextPlayer, setNextPlayer] = useState<Player>('X');
+	const FIRST_STEP = 0;
+	const [firstPlayer, setFirstPlayer] = useState<boolean>(true);
+	const [nextPlayer, setNextPlayer] = useState<boolean>(firstPlayer);
 	const [currentBoard, setCurrentBoard] = useState(Array(9).fill(null));
-	const [stepNumber, setStepNumber] = useState(0);
+	const [stepNumber, setStepNumber] = useState(FIRST_STEP);
 
-	const computeMove = (nextPlayer: Player, squareId: number) => {
-		currentBoard[squareId] = nextPlayer;
+	const parsePlayer = (player: boolean) => {
+		return player ? '❌' : '⭕';
+	};
+
+	const computeMove = (nextPlayer: boolean, squareId: number) => {
+		currentBoard[squareId] = parsePlayer(nextPlayer);
 		setCurrentBoard(currentBoard);
-		nextPlayer = nextPlayer === 'X' ? 'O' : 'X';
-		setNextPlayer(nextPlayer);
+		setNextPlayer(!nextPlayer);
 		setStepNumber(currentStepNumber => currentStepNumber + 1);
+	};
+
+	const restartGame = () => {
+		setFirstPlayer(!nextPlayer);
+		setNextPlayer(nextPlayer);
+		setStepNumber(FIRST_STEP);
+		setCurrentBoard(Array(9).fill(null));
 	};
 
 	return {
 		nextPlayer,
 		stepNumber,
 		currentBoard,
+		restartGame,
+		parsePlayer,
 		computeMove
 	};
 };
