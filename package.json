@@ -3,17 +3,28 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "pages/index.tsx",
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "dependencies": {
     "@testing-library/react": "12.1.2",
     "@zeit/next-sass": "^1.0.1",
-    "jest": "26.6.0",
     "next": "^12.0.4",
     "node-sass": "^6.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-react": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
     "@types/jest": "^26.0.24",
     "@types/react": "17.0.20",
     "@types/react-dom": "17.0.9",
@@ -21,6 +32,7 @@
     "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^7.11.0",
     "eslint-plugin-react": "^7.27.1",
+    "jest": "^27.3.1",
     "prettier": "1.18.2",
     "tslint": "5.9.1",
     "typescript": "4.4.2"

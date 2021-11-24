@@ -51,7 +51,7 @@ const Game: React.FC = () => {
 				<div className="game-info">
 					<p>Current step: {stepNumber}</p>
 					<p>{renderStatusMessage()}</p>
-					<button onClick={restartGame}>Reset Game</button>
+					<button onClick={restartGame} data-testid={'reset'}>Reset Game</button>
 				</div>
 			</div>
 		</>
