@@ -1,7 +1,15 @@
 import React from 'react';
 import Square from './BoardSquare';
 
-const Board = ({ squares, onSquareClick }: any) => {
+import style from './style.module.scss';
+
+const Board = ({
+	squares,
+	onSquareClick
+}: {
+	squares: Array<string>;
+	onSquareClick: (squareId: number) => void;
+}) => {
 	const renderSquare = (squareId: number) => {
 		return (
 			<Square
@@ -13,22 +21,10 @@ const Board = ({ squares, onSquareClick }: any) => {
 	};
 
 	return (
-		<div>
-			<div className="board-row">
-				{renderSquare(0)}
-				{renderSquare(1)}
-				{renderSquare(2)}
-			</div>
-			<div className="board-row">
-				{renderSquare(3)}
-				{renderSquare(4)}
-				{renderSquare(5)}
-			</div>
-			<div className="board-row">
-				{renderSquare(6)}
-				{renderSquare(7)}
-				{renderSquare(8)}
-			</div>
+		<div className={style.board}>
+			{squares.map((square: string, index: number) => {
+				return renderSquare(index);
+			})}
 		</div>
 	);
 };

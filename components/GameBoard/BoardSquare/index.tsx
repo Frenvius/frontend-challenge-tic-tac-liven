@@ -1,5 +1,7 @@
 import React from 'react';
 
+import style from '../style.module.scss';
+
 const Square = ({
 	id,
 	value,
@@ -12,7 +14,9 @@ const Square = ({
 	return (
 		<button
 			data-testid={`square-${id}`}
-			className="square"
+			className={`${style['board__square']} ${
+				value ? style['board__square--selected'] : ''
+			}`}
 			onClick={onClick}
 		>
 			{value}

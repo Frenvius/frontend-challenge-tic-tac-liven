@@ -48,7 +48,7 @@ describe('Renders board and test the game logic', () => {
 
 	it('Player ❌ must win a round', () => {
 		const { getByText, getByTestId } = mount;
-		
+
 		getByTestId('square-0').click(); // Player ❌
 		getByTestId('square-2').click(); // Player ⭕
 		getByTestId('square-3').click(); // Player ❌

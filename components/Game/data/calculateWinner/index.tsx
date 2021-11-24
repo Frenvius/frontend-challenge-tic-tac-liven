@@ -1,4 +1,5 @@
-const calculateWinner = (squares: any) => {
+const calculateWinner = (squares: Array<string>) => {
+	// "game won" patterns
 	const lines = [
 		[0, 1, 2],
 		[3, 4, 5],

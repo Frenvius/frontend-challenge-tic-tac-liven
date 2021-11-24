@@ -1,0 +1,43 @@
+.game {
+	display: flex;
+	flex-wrap: wrap;
+
+	&__title {
+		width: 100%;
+		flex: auto;
+	}
+
+	&__info {
+		min-width: 115px;
+		margin-left: 20px;
+		display: flex;
+		flex-flow: column nowrap;
+
+		:last-child {
+			margin-top:auto;
+		}
+
+		&__reset-btn {
+			background-color: #3888fc;
+			border: 1px solid #3888fc;
+			border-radius: 4px;
+			cursor: pointer;
+			color: #fff;
+			font-weight: bold;
+			line-height: 20px;
+			padding: 3px 8px;
+			text-align: center;
+			margin-top: auto;
+
+			&:hover {
+				background-color: #0b5ed7;
+				border-color: #0b5ed7;
+			}
+		}
+
+		&__text {
+			margin-top: 0;
+			margin-bottom: 5px;
+		}
+	}
+}
